@@ -1,9 +1,9 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Arlindo Vinícius Amado Nascimento Silva
+- Jônatas Felix Nery da Cunha
+- Lucas Monteiro Santos
 
 Link do Surge: www.link.com.br
 
