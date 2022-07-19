@@ -12,7 +12,7 @@ export default function App() {
   const [listDetails, setListDetails] = useState({});
 
   const requestList = () => {
-    axios.get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10")
+    axios.get("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=12")
     .then((response) => {
       
       setList(response.data.results.map(item => {        
