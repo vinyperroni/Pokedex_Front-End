@@ -68,6 +68,7 @@ export const BoxDetalhes = styled.div`
     }
 
     #detals h2 {
+        text-transform: capitalize;
         margin: 0 0 10px 0;
     }
 

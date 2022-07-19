@@ -2,8 +2,13 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalContainer = createGlobalStyle`
     	body{
+                font-family: 'Roboto', sans-serif;
                 margin: 0;
                 padding: 0;
+        }
+
+        header{
+                background-color: #fff;
         }
 
         main{
