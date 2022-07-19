@@ -1,5 +1,12 @@
+import { useState, useContext } from "react";
 import { HomeContainer } from "./styles";
 import Card from "../../components/Card/Card";
+import Card2 from "../../components/Card/Card2";
+// import { useRequestList } from "../../hooks/useRequestList";
+// import { useRequestDetails } from "../../hooks/useRequestDetails";
+
+import axios from "axios";
+import GlobalContext from "../../context/GlobalContext";
 
 export default function HomePage() {
   const pokemons = [
@@ -133,10 +140,31 @@ export default function HomePage() {
     },
   ];
 
+  const pokemon = useContext(GlobalContext)
+ 
+
+
   return (
     <main>
       <HomeContainer>
-        {pokemons.map((pokemon) => {
+
+        {pokemon && pokemon.list.map((pokemon) => {
+          return <Card2 key={pokemon.id} url={pokemon.url}/>
+        })}    
+        {/* {pokemon && pokemon.list.map((pokemon) => {
+          pokemonDetails(pokemon.url).map(() => {
+            return (
+              <Card
+                key={pokemon.id}
+                name={pokemon.name}
+                type={pokemon.type}
+                image={pokemon.image}
+              />
+            );
+          })
+        })} */}
+    
+        {/* {pokemons.map((pokemon) => {
           return (
             <Card
               key={pokemon.id}
@@ -146,7 +174,7 @@ export default function HomePage() {
               image={pokemon.image}
             />
           );
-        })}
+        })} */}
       </HomeContainer>
     </main>
   );
