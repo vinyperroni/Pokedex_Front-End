@@ -16,6 +16,8 @@ import Psychic from "../img/pokemonsType/Psychic.png"
 import Rock from "../img/pokemonsType/Rock.png"
 import Steel from "../img/pokemonsType/Steel.png"
 import Water from "../img/pokemonsType/Water.png"
+import Loader from "../img/loader.gif"
+
 
 
 export const ImgType = (type) => {
@@ -57,6 +59,6 @@ export const ImgType = (type) => {
         case "water":
             return <img src={Water} alt="Water" />
         default:
-            return <img src={Bug} alt="Bug" />
+            return <img src={Loader} alt="Loader" />
 }
 }
