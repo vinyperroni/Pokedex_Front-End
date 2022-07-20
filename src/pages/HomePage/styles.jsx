@@ -2,13 +2,12 @@ import styled from "styled-components";
 // import { color } from "../../styles";
 
 export const HomeContainer = styled.div`
-    max-width: 1280px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     column-gap: 20px;
     row-gap: 0;
-    margin: 0 auto;
+    padding: 0.5em;
 
 
 `
