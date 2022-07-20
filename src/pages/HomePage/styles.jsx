@@ -7,7 +7,7 @@ export const HomeContainer = styled.div`
     flex-wrap: wrap;
     column-gap: 20px;
     row-gap: 0;
-    padding: 0.5em;
+    padding: 7.5em 1em 2.5em 1em;
 
 
 `
