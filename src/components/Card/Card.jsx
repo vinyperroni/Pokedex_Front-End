@@ -49,11 +49,9 @@ export default function Card(props) {
              <div id="type">
              {type.slice(0, 2).map((type) => {
                   return (
-                    <Type key={type}>
-                      <div id={type}>
-                        {ImgType(type)}
-                        <p>{type}</p>
-                      </div>
+                    <Type key={type} id={type}>
+                      {ImgType(type)}
+                      <p>{type}</p>
                     </Type>
                   );
                 })}

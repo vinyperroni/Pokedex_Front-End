@@ -3,49 +3,48 @@ import Pokeball from "../../img/pokeball-icon.png";
 
 
 export const Container = styled.div`
-
-    font-family: "Roboto", sans-serif;
+    text-transform: capitalize;
     /* max-width: 300px; */
-    width: 30%;
-    min-width: 300px;
-    height: 190px;
+    width: 100%;
+    max-width: max(20vw, 320px);
+    height: 100%;
     margin: 55px 0 45px 0;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 0.5rem;
 
+#fire {background-color: #E64A19;}
+#fighting{background-color: #F57C00}
 
+#water {background-color: #00B0FF;}
+#dragon {background-color: #1976D2}
+#ice {background-color: #0097A7}
 
+#electric {background-color: #FFA000;}
 
-#fire {background-color: #fd7d24;}
-#fighting{background-color: #d56723}
+#normal {background-color: #616161;}
+#steel {background-color: #9E9E9E}
+#flying {background-color: #455A64}
+#dark {background-color: #78909C}
 
-#water {background-color: #1982C4;}
-#dragon {background-color: #53a4cf}
-#ice {background-color: #51c4e7}
+#ground {background-color: #FFC107}
+#rock {background-color: #FFB74D}
 
-#electric {background-color: #eed535;}
+#grass {background-color: #C0CA33}
+#bug {background-color: #4CAF50}
 
-#normal {background-color: #a4acaf;}
-#steel {background-color: #9eb7b8}
-#flying {background-color: #9eb7b8}
-#dark {background-color: #707070}
+#poison {background-color: #AB47BC}
+#ghost {background-color: #CE93D8}
 
-#ground {background-color: #f7de3f}
-#rock {background-color: #a38c21}
-
-#grass {background-color: #9bcc50}
-#bug {background-color: #729f3f}
-
-#poison {background-color: #b97fc9}
-#ghost {background-color: #7b62a3}
-
-#fairy {background-color: #fdb9e8}
-#psychic {background-color: #f366b9}
+#fairy {background-color: #af4d98}
+#psychic {background-color: #d24597}
 
 `
 
 export const BoxCard = styled.div`
     display: flex;
     border-radius: 12px;
-    padding: 13px 23px;
+    padding: 0.5em 1em;
 
 
     @media(max-width: 468px) {
@@ -68,13 +67,33 @@ export const BoxDetalhes = styled.div`
     }
 
     #detals h2 {
-        text-transform: capitalize;
         margin: 0 0 10px 0;
     }
 
     #type {
         display: flex;
+        flex-direction: column;
         gap: 5px;
+        max-width: 5em;
+
+        #fire {background-color: #c74118;}
+        #fighting{background-color: #da6d00}    
+        #water {background-color: #0099e0;}
+        #dragon {background-color: #1869ba}
+        #ice {background-color: #008594}    
+        #electric {background-color: #d88900;}    
+        #normal {background-color: #4f4f4f;}
+        #steel {background-color: #797777}
+        #flying {background-color: #303f47}
+        #dark {background-color: #617580}    
+        #ground {background-color: #dda705}
+        #rock {background-color: #d5993f}    
+        #grass {background-color: #4e5314}
+        #bug {background-color: #3b883d}    
+        #poison {background-color: #833690}
+        #ghost {background-color: #a878b1}    
+        #fairy {background-color: #7a356a}
+        #psychic {background-color: #9d3471}
     }
 
     button {
@@ -115,9 +134,8 @@ export const BoxImagem = styled.div`
 
         bottom: 65px;
 
-
-        height: 180px;
-        width: 180px;
+        max-width: 12em;
+        max-height: 10em;
     }
 
     button {
@@ -127,7 +145,8 @@ export const BoxImagem = styled.div`
         border-radius: 8px;
 
         font-size: 16px;
-        font-weight: 400;
+        font-weight: 600;
+        background-color: #f3eded;
 
         cursor: pointer;
     }
@@ -141,63 +160,24 @@ export const BoxImagem = styled.div`
         width: 110px;
         }
     }
-
-
 `
 
 export const Type = styled.div`
-    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-    width: 106px;
     height: 31px;
+    padding: 0.15em 0.5em;
 
-
-    div{
-
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 106px;
-        height: 31px;
-
-        border: 1px dashed rgba(255, 255, 255, 0.541);
-        border-radius: 8px;
-        background-color: #FBD200;
-    }
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 0.25em rgba(0,0,0,0.5);
 
     img {
         width: 20px;
         height: 20px;
-    }
-
-
-    #fire {background-color: #af5718;}
-    #fighting{background-color: #884115}
-
-    #water {background-color: #0e517a;}
-    #dragon {background-color: #23526b}
-    #ice {background-color: #314a52}
-
-    #electric {background-color: #807636;}
-
-    #normal {background-color: #747b7e;}
-    #steel {background-color: #445657}
-    #flying {background-color: #5b5e5e}
-    #dark {background-color: #504a4a}
-
-    #ground {background-color: #ad9c2e}
-    #rock {background-color: #645513}
-
-    #grass {background-color: #698d34}
-    #bug {background-color: #4b6929}
-
-    #poison {background-color: #724f7c}
-    #ghost {background-color: #372c47}
-
-    #fairy {background-color: #b182a2}
-    #psychic {background-color: #7a355e}
-
-
-
+    }    
 `
 

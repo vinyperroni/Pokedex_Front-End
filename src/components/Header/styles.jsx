@@ -6,7 +6,6 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    justify-content: space-between;
     grid-template-areas: 'button1 logo button2';
     
 
