@@ -4,7 +4,7 @@ import { Container, BoxCard, BoxDetalhes, BoxImagem, Type } from "./styles";
 import { ImgType } from "../../utils/ImgType";
 import axios from "axios"
 
-export default function Card2(props) {
+export default function Card(props) {
   
   const [name, setName] = useState()
   const [type, setType] = useState()
@@ -23,7 +23,7 @@ export default function Card2(props) {
       setName(response.data.name)
       setId(response.data.id)
 
-      const types = response.data.types.map(item => {
+      const types = response.data.types.map((item) => {
         return item.type.name
       })
 
@@ -35,7 +35,6 @@ export default function Card2(props) {
     })
   }
 
-  console.log(type)
 
   return (
     <>

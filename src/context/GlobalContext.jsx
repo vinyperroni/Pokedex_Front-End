@@ -1,5 +1,5 @@
-const { createContext } = require("react");
+import React from "react"
 
-const GlobalContext = createContext()
+const GlobalContext = React.createContext()
 
 export default GlobalContext
