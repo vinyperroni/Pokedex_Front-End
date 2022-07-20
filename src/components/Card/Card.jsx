@@ -2,15 +2,17 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Container, BoxCard, BoxDetalhes, BoxImagem, Type } from "./styles";
 import { ImgType } from "../../utils/ImgType";
-import axios from "axios"
+import PokemonLoading from "../../img/pokemon.png";
+
+import axios from "axios";
 
 export default function Card(props) {
   
-  const [name, setName] = useState()
-  const [type, setType] = useState()
-  const [id, setId] = useState()
-  const [image, setImage] = useState()
-  const [loading, setLoading] = useState(true)
+  const [name, setName] = useState("carregando");
+  const [type, setType] = useState([""]);
+  const [id, setId] = useState("00");
+  const [image, setImage] = useState(PokemonLoading);
+  const [loading, setLoading] = useState(true);
 
   useEffect (() => {
     resquestDetail(props.url)
@@ -18,27 +20,26 @@ export default function Card(props) {
   }, [])
 
   const resquestDetail = (url) => {
-    axios.get(url)
-    .then((response) => {
-      setName(response.data.name)
-      setId(response.data.id)
+    // axios.get(url)
+    // .then((response) => {
+    //   setName(response.data.name)
+    //   setId(response.data.id)
 
-      const types = response.data.types.map((item) => {
-        return item.type.name
-      })
+    //   const types = response.data.types.map((item) => {
+    //     return item.type.name
+    //   })
 
-      setType(types)
-      setImage(response.data.sprites.other.dream_world.front_default)
-      setLoading(false)
-    }).catch((error) => {
-      console.log(error);
-    })
+    //   setType(types)
+    //   setImage(response.data.sprites.other.dream_world.front_default)
+    //   setLoading(false)
+    // }).catch((error) => {
+    //   console.log(error);
+    // })
   }
 
 
   return (
     <>
-    {loading ? <div>Loading...</div> :
        <Container className="card" key={id}>
        <BoxCard className="cardColor" id={type[0]}>
          <BoxDetalhes>
@@ -63,11 +64,12 @@ export default function Card(props) {
 
          <BoxImagem>
            <img src={image} alt={name} />
-           <button>Capturar!</button>
+           {loading ? <button style={{cursor: "wait"}}>Carregando</button> 
+           : <button>Capturar!</button>}
+           
          </BoxImagem>
        </BoxCard>
      </Container>
-    }
      
     </>
   );
