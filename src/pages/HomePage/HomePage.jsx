@@ -6,14 +6,14 @@ import GlobalContext from "../../context/GlobalContext";
 
 export default function HomePage() {
 
-  const pokemon = useContext(GlobalContext)
+  const {list} = useContext(GlobalContext)
  
   return (
     <main>
       <HomeContainer>
 
-        {pokemon && pokemon.list.map((pokemon) => {
-          return <Card key={pokemon.id} url={pokemon.url}/>
+        {list && list.map((pokemon) => {
+          return <Card key={pokemon.name} url={pokemon.url}/>
         })}    
       
       </HomeContainer>
