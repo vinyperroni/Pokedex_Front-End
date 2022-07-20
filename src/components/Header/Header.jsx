@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <header>
       <Container>
-        <NavLink to="/" id="logo">
+        <NavLink to="/" id="logo" style={{ overflow: "hidden" }}>
             <img src={Logo} alt="Pokemon" />
         </NavLink>
         <RenderButton/>
