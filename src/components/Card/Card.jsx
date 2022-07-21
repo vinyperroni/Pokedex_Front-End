@@ -30,7 +30,7 @@ export default function Card(props) {
       })
 
       setType(types)
-      setImage(response.data.sprites.other.dream_world.front_default)
+      setImage(response.data.sprites.other.dream_world.front_default || response.data.sprites.other.home.front_default)
       setLoading(false)
     }).catch((error) => {
       console.log(error);
