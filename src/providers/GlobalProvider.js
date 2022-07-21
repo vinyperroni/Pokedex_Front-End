@@ -17,16 +17,12 @@ export default function GlobalProvider(props) {
     }
   
     useEffect(() => {
-      if (window.localStorage.getItem("pageNumber") !== null) {
-        setPageNumber(window.localStorage.getItem("pageNumber"));
-        requestList();
-      } else {
-        requestList();
-      }      
-    },[])
+      requestList();
+      
+    },[pageNumber])
   
     return(
-        <GlobalContext.Provider value={{list, setList}}>
+        <GlobalContext.Provider value={{list, setList, pageNumber, setPageNumber}}>
             {props.children}
         </GlobalContext.Provider>
     )

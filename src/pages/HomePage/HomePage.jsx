@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { HomeContainer } from "./styles";
 import Card from "../../components/Card/Card";
-import { PageNumber } from "../../components/PageNumber/PageNumber";
+import { BoxPageNumber } from "../../components/PageNumber/BoxPageNumber";
 
 import GlobalContext from "../../context/GlobalContext";
 
@@ -17,9 +17,7 @@ export default function HomePage() {
           return <Card key={pokemon.name} url={pokemon.url}/>
         })}    
 
-        <PageNumber >
-          
-        </PageNumber>
+        <BoxPageNumber />
       </HomeContainer>
     </main>
   );
