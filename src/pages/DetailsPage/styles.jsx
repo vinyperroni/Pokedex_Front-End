@@ -79,9 +79,10 @@ export const BoxCard = styled.div`
     align-items: flex-end;
 
     @media(max-width: 768px) {
+        height: fit-content;
 
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(4);
+        grid-template-rows: 0.5fr repeat(3, 1fr);
         grid-template-areas:    'name .'        
                                 'box1 box2'
                                 'box3 box3'
@@ -169,7 +170,7 @@ export const BoxDetalhes = styled.div`
     top: 0;
 
     color: #fff;
-    z-index: 1000;
+    
     width: 50%;
 
     #detals p:first-child {
