@@ -46,6 +46,7 @@ export const GlobalContainer = createGlobalStyle`
 
         main{
                 background-color: #5E5E5E;
+
                 
         }
 
