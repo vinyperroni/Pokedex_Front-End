@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { HomeContainer } from "./styles";
 import Card from "../../components/Card/Card";
+import { PageNumber } from "../../components/PageNumber/PageNumber";
 
 import GlobalContext from "../../context/GlobalContext";
 
@@ -15,7 +16,10 @@ export default function HomePage() {
         {list && list.map((pokemon) => {
           return <Card key={pokemon.name} url={pokemon.url}/>
         })}    
-      
+
+        <PageNumber >
+          
+        </PageNumber>
       </HomeContainer>
     </main>
   );

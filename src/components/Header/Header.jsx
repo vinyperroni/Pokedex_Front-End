@@ -49,13 +49,13 @@ export default function Header() {
         }        
         {location.pathname === "/pokedex" &&
           <button  onClick={() => navigate(-1)}>
-            <FaAngleLeft />
+            <FaTrashAlt />
             <strong className="big-screen">Limpar</strong>
           </button>
         }
         {location.pathname === "/pokemon/:name" &&
           <button  onClick={() => navigate(-1)}>
-            <FaAngleLeft />
+            <FaTrashAlt />
             <strong className="big-screen">Remover</strong>
           </button>
         }
