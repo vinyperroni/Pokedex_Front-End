@@ -6,7 +6,7 @@ import { BoxPageNumber } from "../../components/PageNumber/BoxPageNumber";
 import GlobalContext from "../../context/GlobalContext";
 
 export default function HomePage() {
-
+  
   const {list} = useContext(GlobalContext)
  
   return (

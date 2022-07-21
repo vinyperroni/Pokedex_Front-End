@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Container, BoxCard, BoxDetalhes, BoxImagem, Type } from "./styles";
 import { ImgType } from "../../utils/ImgType";
 import PokemonLoading from "../../img/pokemon.png";
+import { ModalNotify } from "../Modal/ModalNotify";
 
 import axios from "axios";
 
@@ -13,11 +14,23 @@ export default function Card(props) {
   const [id, setId] = useState("00");
   const [image, setImage] = useState(PokemonLoading);
   const [loading, setLoading] = useState(true);
+  const [triggerModal, setTriggerModal] = useState(false);
 
   useEffect (() => {
     resquestDetail(props.url)
     
   }, [])
+
+  useEffect (() => {
+    setTimeout(() =>{
+      if (triggerModal) {
+        const modal = document.querySelector("#modal").style.opacity = "1";
+        setTimeout(() => {modal.style.opacity = "0"}, 1500)
+        setTimeout(() => {setTriggerModal(false)}, 2000)
+      }
+    }, 150)
+    
+  }, [triggerModal])
 
   const resquestDetail = (url) => {
     axios.get(url)
@@ -36,7 +49,6 @@ export default function Card(props) {
       console.log(error);
     })
   }
-
 
   return (
     <>
@@ -65,12 +77,14 @@ export default function Card(props) {
          <BoxImagem>
            <img src={image} alt={name} />
            {loading ? <button style={{cursor: "wait"}}>Carregando</button> 
-           : <button>Capturar!</button>}
+           :  
+            <button onClick={() => setTriggerModal(true)}>
+              Capturar!
+            </button>}
            
          </BoxImagem>
        </BoxCard>
      </Container>
-     
     </>
   );
 }
