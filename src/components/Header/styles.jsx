@@ -10,7 +10,8 @@ export const Container = styled.div`
     width: 100%;
     padding: 0.75em 0;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
-    background-color: white;
+    background-color: rgba(255,255,255,0.75);
+    backdrop-filter: blur(0.75em);
     
     div {
         display: flex;
