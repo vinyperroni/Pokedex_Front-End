@@ -8,6 +8,36 @@ export const GlobalContainer = createGlobalStyle`
                 font-family: 'Roboto', sans-serif;
                 margin: 0;
                 padding: 0;
+                box-sizing: border-box;
+                
+                &::-webkit-scrollbar {
+                        width: 0px;
+                        background: transparent;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                        background: transparent;
+                }
+
+                &::-webkit-scrollbar-track {
+                        background: transparent;
+                }
+
+                &::-webkit-scrollbar-corner {
+                        background: transparent;
+                }
+
+                &::-webkit-scrollbar-resizer {
+                        background: transparent;
+                }
+
+                &::-webkit-scrollbar-button {
+                        background: transparent;
+                }
+
+                &.element {overflow: -moz-scrollbars-none; }
+
+
         }
 
         header{
@@ -16,6 +46,7 @@ export const GlobalContainer = createGlobalStyle`
 
         main{
                 background-color: #5E5E5E;
+                
         }
 
 `

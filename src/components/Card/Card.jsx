@@ -20,21 +20,21 @@ export default function Card(props) {
   }, [])
 
   const resquestDetail = (url) => {
-    // axios.get(url)
-    // .then((response) => {
-    //   setName(response.data.name)
-    //   setId(response.data.id)
+    axios.get(url)
+    .then((response) => {
+      setName(response.data.name)
+      setId(response.data.id)
 
-    //   const types = response.data.types.map((item) => {
-    //     return item.type.name
-    //   })
+      const types = response.data.types.map((item) => {
+        return item.type.name
+      })
 
-    //   setType(types)
-    //   setImage(response.data.sprites.other.dream_world.front_default)
-    //   setLoading(false)
-    // }).catch((error) => {
-    //   console.log(error);
-    // })
+      setType(types)
+      setImage(response.data.sprites.other.dream_world.front_default)
+      setLoading(false)
+    }).catch((error) => {
+      console.log(error);
+    })
   }
 
 
