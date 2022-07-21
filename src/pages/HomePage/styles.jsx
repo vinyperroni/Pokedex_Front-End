@@ -9,7 +9,6 @@ export const HomeContainer = styled.div`
     row-gap: 0;
     padding: 7.5em 1em 2.5em 1em;
 
-
 `
 
 

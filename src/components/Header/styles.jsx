@@ -1,54 +1,74 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    z-index: 10;
+    z-index: 3;
     position: fixed;
     top: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    grid-template-areas: 'button1 logo button2';
-    
-    width: 100vw;
-    margin: 0 auto;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;    
+    width: 100%;
+    padding: 0.75em 0;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
     background-color: white;
-
-
-    #logo {
+    
+    div {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50vw;
-        height: 6em;
-        margin: 0 auto;
-        grid-area: logo;
-        border: solid;
-    }
-
-    #btn{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
         width: 100%;
-        max-width: min(10vw, 24em);
-        height: 60px;
-
-        background: #33A4F5;
-        border-radius: 8px;
-
-        margin: 0 auto;
-        grid-column: 3/3;
-
-        font-size: 24px;
+        max-width: 32em;
+    }
+    
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 12em;
+        min-height: 4em;
         color: white;
-        text-decoration: none;
+        border: none;
+        border-radius: 0.5em;
+        background-color: #0099e0;
+        transition: all 0.25s ease-in-out;
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        strong {
+            font-size: 1.5em;
+        }
+        svg {            
+            min-width: 2em;
+            height: 100%;
+        }
     }
 
     img {
-        width: 100%;
-        height: 85%;
+        width: min(42vw, 12em);
+        max-width: 12em;
+        transition: all 0.25s ease-in-out;
     }
 
+    @media (max-width: 560px) {
+        button {
+            max-width: 4em;
+        }
+
+        .big-screen {
+            display: none;
+        }
+    }
+
+    @media (max-width: 320px) {
+        button {
+            max-width: 3em;
+            min-height: 3em;
+        }
+
+        .big-screen {
+            display: none;
+        }
+    }
 `

@@ -8,7 +8,7 @@ export const Container = styled.div`
     width: 100%;
     max-width: max(20vw, 320px);
     height: 100%;
-    margin: 55px 0 45px 0;
+    margin: 1.5em 0.5em;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
     border: none;
     border-radius: 0.5rem;
@@ -58,8 +58,7 @@ export const BoxDetalhes = styled.div`
     justify-content: space-between;
     flex-direction: column;
 
-    color: #fff;
-    z-index: 1000;
+    color: #fff;    
     width: 50%;
 
     #detals p:first-child {
@@ -121,7 +120,9 @@ export const BoxImagem = styled.div`
     align-items: center;
     justify-content: flex-end;
 
-    width: 50%;
+    width: 100%;
+    max-width: min(24vw, 10em);
+    margin-left: 0.5em;
     position: relative;
 
     background: url(${Pokeball}) center center no-repeat;
