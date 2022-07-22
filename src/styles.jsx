@@ -11,7 +11,8 @@ export const GlobalContainer = createGlobalStyle`
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
-                
+                background-color: #5E5E5E;
+                min-height: 100vh;
                 &::-webkit-scrollbar {
                         width: 0px;
                         background: transparent;

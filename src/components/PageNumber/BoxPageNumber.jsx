@@ -76,7 +76,7 @@ export const BoxPageNumber = () => {
       }
       <input type="number" min={1} max={58} pattern="[0-9]{1,}" value={auxPageNumber} onChange={handleChange}/>
       {auxPageNumber < 58 ?
-        <FaAngleDoubleRight onClick={() => setAuxPageNumber(auxPageNumber+1)}/>
+        <FaAngleDoubleRight onClick={() => setAuxPageNumber(parseInt(auxPageNumber)+1)}/>
       :
         <FaAngleDoubleRight style={{opacity: "0.5"}}/>
       }
