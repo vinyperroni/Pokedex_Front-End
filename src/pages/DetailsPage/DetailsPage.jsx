@@ -1,4 +1,4 @@
-import { BoxCard, Container, SmallBox, MediumBox, Move, BigBox, BoxImagem, BoxDetalhes, Type } from "./styles";
+import { BoxCard, Container, Stat, SmallBox, MediumBox, Move, BigBox, BoxImagem, BoxDetalhes, Type } from "./styles";
 import { useParams } from "react-router-dom";
 import axios from "axios"
 import { useEffect, useState } from "react";
@@ -11,11 +11,12 @@ export default function DetailsPage() {
     const [name, setName] = useState("carregando");
     const [type, setType] = useState([""]);
     const [moves, setMoves] = useState([""]);
+    const [stats, setStats] = useState([]);
     const [id, setId] = useState("00");
     const [image, setImage] = useState("");
     const [frontImg, setFrontImg] = useState("")
     const [backImg, setBackImg] = useState("")
-
+   
     const [loading, setLoading] = useState(true);
 
 
@@ -41,6 +42,12 @@ export default function DetailsPage() {
                     return item.move.name
                 })
 
+                const stats = response.data.stats.map((item) => {
+                    return {nome: item.stat.name,
+                            stat: item.base_stat}
+                })
+
+                setStats(stats)
                 setMoves(moves)
                 setType(types)
                 setLoading(false)
@@ -75,6 +82,18 @@ export default function DetailsPage() {
                 </MediumBox>
                 <BigBox id="box3">
                     <h2>Base stats</h2>
+                    {stats && stats.map((stat) => {
+                        return (
+                            
+                            <Stat>
+                                <span id="statName">{stat.nome}</span>
+                                <span>{stat.stat}</span>
+                                <div style={{width:`${stat.stat}%`}}></div>
+                            </Stat>
+                            
+                        
+                        )
+                    })}
                 </BigBox>              
                
                 <BoxDetalhes>
