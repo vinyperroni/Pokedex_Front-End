@@ -1,6 +1,5 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Pokeball from "../../img/pokeball-icon.png";
-
 
 export const Container = styled.div`
     text-transform: capitalize;
@@ -26,31 +25,33 @@ export const Container = styled.div`
 
     }
 
-#fire {background-color: #E64A19;}
-#fighting{background-color: #F57C00}
+    
+    #Loading {background-color: #3f3f3f;}
+    #fire {background-color: #E64A19;}
+    #fighting{background-color: #F57C00}
 
-#water {background-color: #00B0FF;}
-#dragon {background-color: #1976D2}
-#ice {background-color: #0097A7}
+    #water {background-color: #00B0FF;}
+    #dragon {background-color: #1976D2}
+    #ice {background-color: #0097A7}
 
-#electric {background-color: #FFA000;}
+    #electric {background-color: #FFA000;}
 
-#normal {background-color: #616161;}
-#steel {background-color: #9E9E9E}
-#flying {background-color: #455A64}
-#dark {background-color: #78909C}
+    #normal {background-color: #616161;}
+    #steel {background-color: #9E9E9E}
+    #flying {background-color: #455A64}
+    #dark {background-color: #78909C}
 
-#ground {background-color: #FFC107}
-#rock {background-color: #FFB74D}
+    #ground {background-color: #FFC107}
+    #rock {background-color: #FFB74D}
 
-#grass {background-color: #C0CA33}
-#bug {background-color: #4CAF50}
+    #grass {background-color: #C0CA33}
+    #bug {background-color: #4CAF50}
 
-#poison {background-color: #AB47BC}
-#ghost {background-color: #CE93D8}
+    #poison {background-color: #AB47BC}
+    #ghost {background-color: #CE93D8}
 
-#fairy {background-color: #af4d98}
-#psychic {background-color: #d24597}
+    #fairy {background-color: #af4d98}
+    #psychic {background-color: #d24597}
 
 `
 
@@ -189,7 +190,7 @@ export const BoxDetalhes = styled.div`
         flex-direction: row;
         gap: 5px;
         max-width: 5em;
-
+        
         #fire {background-color: #c74118;}
         #fighting{background-color: #da6d00}    
         #water {background-color: #0099e0;}
@@ -254,6 +255,10 @@ export const BoxImagem = styled.div`
     height: 190px;
 
 `
+const animation = keyframes`
+      0% { width: 0; }
+  100% { width:  ${(props) => props.value * 0.75}%; }
+`;
 
 export const Stat = styled.div`
     display: grid;
@@ -271,9 +276,10 @@ export const Stat = styled.div`
     }
     & > div {
         border-radius: 100px;
-        width: 100%;
+        width: ${props => props.width * 0.75}%;
         max-width: 100%;
         background-color: #ff5511;
+        animation: ${animation} 1s normal forwards;
     }
 `
 

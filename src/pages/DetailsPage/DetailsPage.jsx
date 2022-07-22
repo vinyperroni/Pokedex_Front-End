@@ -3,19 +3,22 @@ import { useParams } from "react-router-dom";
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { ImgType } from "../../utils/ImgType";
+import PokemonLoading from "../../img/pokemon.png";
+import PokemonFront from "../../img/pokemon-front.png";
+import PokemonBack from "../../img/pokemon-back.png";
 
 export default function DetailsPage() {
 
     const pathParams = useParams();
 
     const [name, setName] = useState("carregando");
-    const [type, setType] = useState([""]);
-    const [moves, setMoves] = useState([""]);
+    const [type, setType] = useState(["Loading"]);
+    const [moves, setMoves] = useState(["Carregando"]);
     const [stats, setStats] = useState([]);
     const [id, setId] = useState("00");
-    const [image, setImage] = useState("");
-    const [frontImg, setFrontImg] = useState("")
-    const [backImg, setBackImg] = useState("")
+    const [image, setImage] = useState(PokemonLoading);
+    const [frontImg, setFrontImg] = useState(PokemonFront)
+    const [backImg, setBackImg] = useState(PokemonBack)
    
     const [loading, setLoading] = useState(true);
 
@@ -85,10 +88,10 @@ export default function DetailsPage() {
                     {stats && stats.map((stat) => {
                         return (
                             
-                            <Stat>
+                            <Stat width={stat.stat}>
                                 <span id="statName">{stat.nome}</span>
                                 <span>{stat.stat}</span>
-                                <div style={{width:`${stat.stat * 0.75}%`}}></div>
+                                <div></div>
                             </Stat>
                             
                         
@@ -99,7 +102,7 @@ export default function DetailsPage() {
                 <BoxDetalhes>
                     <div id="detals">
                         <p>#{id}</p>
-                        <h2>{name}</h2>
+                        <h2>{name.split("-").join(" ")}</h2>
 
                         <div id="type">
                             {type.map((type) => {
