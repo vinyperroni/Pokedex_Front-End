@@ -88,7 +88,7 @@ export default function DetailsPage() {
                             <Stat>
                                 <span id="statName">{stat.nome}</span>
                                 <span>{stat.stat}</span>
-                                <div style={{width:`${stat.stat}%`}}></div>
+                                <div style={{width:`${stat.stat * 0.75}%`}}></div>
                             </Stat>
                             
                         
