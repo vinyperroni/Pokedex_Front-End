@@ -7,6 +7,7 @@ import { StatsName } from "../../utils/StatsName";
 import PokemonLoading from "../../img/pokemon.png";
 import PokemonFront from "../../img/pokemon-front.png";
 import PokemonBack from "../../img/pokemon-back.png";
+import Header from "../../components/Header/Header";
 
 export default function DetailsPage() {
 
@@ -77,6 +78,9 @@ export default function DetailsPage() {
     }
 
     return (
+
+        <>
+        <Header/>
         <main>
         <Container>
             <h1>Detalhes</h1>
@@ -125,13 +129,14 @@ export default function DetailsPage() {
                                     </Type>
                                 );
                             })}
-                        </div>
-                    </div>
 
-                </BoxDetalhes>
-                <img src={image} alt={name} />
-            </BoxCard>
-        </Container>
+                        </div>
+
+                    </BoxDetalhes>
+                    <img src={image} alt={name} />
+                </BoxCard>
+            </Container>
         </main>
+        </>
     )
 }
