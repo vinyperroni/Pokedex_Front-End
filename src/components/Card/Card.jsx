@@ -1,36 +1,26 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Container, BoxCard, BoxDetalhes, BoxImagem, Type } from "./styles";
 import { ImgType } from "../../utils/ImgType";
 import PokemonLoading from "../../img/pokemon.png";
-import { ModalNotify } from "../Modal/ModalNotify";
+
+import GlobalContext from "../../context/GlobalContext";
 
 import axios from "axios";
 
 export default function Card(props) {
+  const {setTriggerModal} = useContext(GlobalContext)
   
   const [name, setName] = useState("carregando");
   const [type, setType] = useState([""]);
   const [id, setId] = useState("00");
   const [image, setImage] = useState(PokemonLoading);
   const [loading, setLoading] = useState(true);
-  const [triggerModal, setTriggerModal] = useState(false);
 
   useEffect (() => {
     resquestDetail(props.url)
     
   }, [])
-
-  useEffect (() => {
-    setTimeout(() =>{
-      if (triggerModal) {
-        const modal = document.querySelector("#modal").style.opacity = "1";
-        setTimeout(() => {modal.style.opacity = "0"}, 1500)
-        setTimeout(() => {setTriggerModal(false)}, 2000)
-      }
-    }, 150)
-    
-  }, [triggerModal])
 
   const resquestDetail = (url) => {
     axios.get(url)
@@ -78,7 +68,7 @@ export default function Card(props) {
            <img src={image} alt={name} />
            {loading ? <button style={{cursor: "wait"}}>Carregando</button> 
            :  
-            <button onClick={() => setTriggerModal(true)}>
+            <button onClick={() => setTriggerModal("add")}>
               Capturar!
             </button>}
            
