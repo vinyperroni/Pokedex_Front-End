@@ -6,6 +6,7 @@ import { ImgType } from "../../utils/ImgType";
 import PokemonLoading from "../../img/pokemon.png";
 import PokemonFront from "../../img/pokemon-front.png";
 import PokemonBack from "../../img/pokemon-back.png";
+import Header from "../../components/Header/Header";
 
 export default function DetailsPage() {
 
@@ -63,63 +64,66 @@ export default function DetailsPage() {
     }
 
     return (
-        <main>
-        <Container>
-            <h1>Detalhes</h1>
-            <BoxCard className="cardColor" id={type[0]}>
-                <SmallBox id="box1">
-                    <img src={frontImg} alt="" />
-                </SmallBox>
-                <SmallBox id="box2">
-                    <img src={backImg} alt="" />
-                </SmallBox>
-                <MediumBox id="box4">
-                    <h2>Moves:</h2>
-                    {moves && moves.slice(0, 8).map((move) => {
-                  return (
-                    <Move key={move}>
-                      <p>{move}</p>
-                    </Move>
-                  );
-                })}
-                </MediumBox>
-                <BigBox id="box3">
-                    <h2>Base stats</h2>
-                    {stats && stats.map((stat) => {
-                        return (
-                            
-                            <Stat width={stat.stat}>
-                                <span id="statName">{stat.nome}</span>
-                                <span>{stat.stat}</span>
-                                <div></div>
-                            </Stat>
-                            
-                        
-                        )
+        <>
+        <Header/>
+        <main>    
+            <Container>
+                <h1>Detalhes</h1>
+                <BoxCard className="cardColor" id={type[0]}>
+                    <SmallBox id="box1">
+                        <img src={frontImg} alt="" />
+                    </SmallBox>
+                    <SmallBox id="box2">
+                        <img src={backImg} alt="" />
+                    </SmallBox>
+                    <MediumBox id="box4">
+                        <h2>Moves:</h2>
+                        {moves && moves.slice(0, 8).map((move) => {
+                    return (
+                        <Move key={move}>
+                        <p>{move}</p>
+                        </Move>
+                    );
                     })}
-                </BigBox>              
-               
-                <BoxDetalhes>
-                    <div id="detals">
-                        <p>#{id}</p>
-                        <h2>{name.split("-").join(" ")}</h2>
+                    </MediumBox>
+                    <BigBox id="box3">
+                        <h2>Base stats</h2>
+                        {stats && stats.map((stat) => {
+                            return (
+                                
+                                <Stat width={stat.stat}>
+                                    <span id="statName">{stat.nome}</span>
+                                    <span>{stat.stat}</span>
+                                    <div></div>
+                                </Stat>
+                                
+                            
+                            )
+                        })}
+                    </BigBox>              
+                
+                    <BoxDetalhes>
+                        <div id="detals">
+                            <p>#{id}</p>
+                            <h2>{name.split("-").join(" ")}</h2>
 
-                        <div id="type">
-                            {type.map((type) => {
-                                return (
-                                    <Type key={type} id={type}>
-                                        {ImgType(type)}
-                                        <p>{type}</p>
-                                    </Type>
-                                );
-                            })}
+                            <div id="type">
+                                {type.map((type) => {
+                                    return (
+                                        <Type key={type} id={type}>
+                                            {ImgType(type)}
+                                            <p>{type}</p>
+                                        </Type>
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
 
-                </BoxDetalhes>
-                <img src={image} alt={name} />
-            </BoxCard>
-        </Container>
+                    </BoxDetalhes>
+                    <img src={image} alt={name} />
+                </BoxCard>
+            </Container>
         </main>
+        </>
     )
 }
