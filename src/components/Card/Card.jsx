@@ -9,7 +9,7 @@ import GlobalContext from "../../context/GlobalContext";
 import axios from "axios";
 
 export default function Card(props) {
-  const {setTriggerModal} = useContext(GlobalContext)
+  const {addToPokedex, pokedex, delToPokedex} = useContext(GlobalContext)
   
   const [name, setName] = useState("carregando");
   const [type, setType] = useState([""]);
@@ -18,12 +18,12 @@ export default function Card(props) {
   const [loading, setLoading] = useState(true);
 
   useEffect (() => {
-    resquestDetail(props.url)
+    resquestDetail(props.name)
     
   }, [])
 
-  const resquestDetail = (url) => {
-    axios.get(url)
+  const resquestDetail = (name) => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
     .then((response) => {
       setName(response.data.name)
       setId(response.data.id)
@@ -67,11 +67,15 @@ export default function Card(props) {
          <BoxImagem>
            <img src={image} alt={name} />
            {loading ? <button style={{cursor: "wait"}}>Carregando</button> 
-           :  
-            <button onClick={() => setTriggerModal("add")}>
-              Capturar!
-            </button>}
-           
+           :
+           (pokedex.some(pokemon => (pokemon.name === name)) 
+            ?
+              <button style={{background: "red", color: "white"}} onClick={() => delToPokedex(name)}> Remover! </button>
+            :            
+              <button onClick={() => addToPokedex(name)}>
+                Capturar!
+              </button>)
+            }
          </BoxImagem>
        </BoxCard>
      </Container>

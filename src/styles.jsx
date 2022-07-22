@@ -5,6 +5,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalContainer = createGlobalStyle`
     	body{
+                background-color: #5E5E5E;
+                min-height: 100vh;
                 font-family: 'Roboto', sans-serif;
                 margin: 0;
                 padding: 0;
@@ -42,12 +44,6 @@ export const GlobalContainer = createGlobalStyle`
 
         header{
                 background-color: #fff;
-        }
-
-        main{
-                background-color: #5E5E5E;
-
-                
         }
 
 `

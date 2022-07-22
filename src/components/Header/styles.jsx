@@ -23,6 +23,7 @@ export const Container = styled.div`
     
     button {
         display: flex;
+        cursor: pointer;
         align-items: center;
         justify-content: center;
         width: 100%;

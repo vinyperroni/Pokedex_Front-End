@@ -263,7 +263,7 @@ const animation = keyframes`
 
 export const Stat = styled.div`
     display: grid;
-    grid-template-columns: 1fr 0.1fr 1fr;
+    grid-template-columns: 1fr 20px 1fr;
     text-align: right;
     gap: 8px;
     margin: 8px 0;
