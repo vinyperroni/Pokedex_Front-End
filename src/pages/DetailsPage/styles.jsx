@@ -151,11 +151,12 @@ export const MediumBox = styled.div`
 export const BigBox = styled.div`
     margin: 0 auto; 
     background-color: white;
-    width: 100%;
-    height: 100%;
     border-radius: 12px;
+    width: 90%;
+    height:90%;
+    padding: 5%;
     & > h2{
-        margin-left: 18px;
+        margin: 0;
     }
 
 `
@@ -254,7 +255,7 @@ export const BoxImagem = styled.div`
 
 export const Stat = styled.div`
     display: grid;
-    grid-template-columns: 1fr 0.2fr 1fr;
+    grid-template-columns: 0.8fr 0.2fr 1fr;
     text-align: right;
     gap: 8px;
     margin: 8px 0;
@@ -269,6 +270,7 @@ export const Stat = styled.div`
     & > div {
         border-radius: 100px;
         width: 100%;
+        max-width: 100%;
         background-color: #ff5511;
     }
 `
