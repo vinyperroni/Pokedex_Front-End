@@ -47,7 +47,7 @@ export default function Card(props) {
          <BoxDetalhes>
            <div id="detals">
              <p>#{id}</p>
-             <h2>{name}</h2>
+             <h2>{name.split("-").join(" ")}</h2>
 
              <div id="type">
              {type.slice(0, 2).map((type) => {

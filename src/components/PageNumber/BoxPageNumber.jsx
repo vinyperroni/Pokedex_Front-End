@@ -62,6 +62,11 @@ export const BoxPageNumber = () => {
     auxPageNumber !== "" && (auxPageNumber) > 0 && setPageNumber(auxPageNumber);
   }, [auxPageNumber])
 
+  const handleChange = (e) => {
+    e.target.value > 58 ? setAuxPageNumber(58) : setAuxPageNumber(e.target.value)
+  }
+
+
   return (
     <Box>
       {auxPageNumber > 1 ?
@@ -69,7 +74,7 @@ export const BoxPageNumber = () => {
       :
         <FaAngleDoubleLeft style={{opacity: "0.5"}}/>
       }
-      <input type="number" min={1} max={58} pattern="[0-9]{1,}" value={auxPageNumber} onChange={(e) => setAuxPageNumber(e.target.value)}/>
+      <input type="number" min={1} max={58} pattern="[0-9]{1,}" value={auxPageNumber} onChange={handleChange}/>
       {auxPageNumber < 58 ?
         <FaAngleDoubleRight onClick={() => setAuxPageNumber(auxPageNumber+1)}/>
       :
