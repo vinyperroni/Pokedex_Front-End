@@ -34,6 +34,10 @@ export const Container = styled.div`
         border-radius: 0.5em;
         background-color: #0099e0;
         transition: all 0.25s ease-in-out;
+        .icon{
+            display: none;
+        }
+
         &:hover {
             transform: scale(1.1);
         }
@@ -53,9 +57,13 @@ export const Container = styled.div`
         transition: all 0.25s ease-in-out;
     }
 
+
     @media (max-width: 560px) {
         button {
-            max-width: 4em;
+            max-width: 4em;        
+            .icon{
+                display: block;
+        }
         }
 
         .big-screen {
