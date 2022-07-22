@@ -81,9 +81,9 @@ export const BoxCard = styled.div`
 
     @media(max-width: 768px) {
         height: fit-content;
-
+        padding-bottom: 1.5em;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.5fr 1fr 1.5fr 1fr;
+        grid-template-rows: 0.5fr 1fr 1.8fr 1fr;
         grid-template-areas:    'name .'        
                                 'box1 box2'
                                 'box3 box3'
@@ -159,6 +159,7 @@ export const BigBox = styled.div`
     padding: 5%;
     & > h2{
         margin: 0;
+        margin-bottom: 20px;
         padding: 0;
     }
 
@@ -262,7 +263,7 @@ const animation = keyframes`
 
 export const Stat = styled.div`
     display: grid;
-    grid-template-columns: 0.7fr 0.1fr 1fr;
+    grid-template-columns: 1fr 0.1fr 1fr;
     text-align: right;
     gap: 8px;
     margin: 8px 0;
