@@ -15,7 +15,7 @@ LINK : [Clique Aqui](https://pokedex-gp1.surge.sh/)
 - [x] Pagina de detalhes com mais informações sobres o pokémon
 - [x] Pagina da Pokedex com possibilidade de remover tanto todos de uma vez como apenas um 
 - [x] Passador de páginas dando possibilidade de visualizar todos os pokémons da API
-- [ ] Botoes que se alteram de acordo com a adição ou remoção dos pokémons
+- [x] Botoes que se alteram de acordo com a adição ou remoção dos pokémons
 - [x] Responsividade
 
 ## Descrição do Projeto
