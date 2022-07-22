@@ -252,5 +252,26 @@ export const BoxImagem = styled.div`
 
 `
 
+export const Stat = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 0.2fr 1fr;
+    text-align: right;
+    gap: 8px;
+    margin: 8px 0;
+    width: 100%;
+    & > span{
+        font-weight: bold;
+        font-size: 15px;        
+    }
+    #statName{
+        color: #5E5E5E;
+    }
+    & > div {
+        border-radius: 100px;
+        width: 100%;
+        background-color: #ff5511;
+    }
+`
+
 
 
