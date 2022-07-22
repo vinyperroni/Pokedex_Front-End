@@ -82,7 +82,7 @@ export const BoxCard = styled.div`
         height: fit-content;
 
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.5fr repeat(3, 1fr);
+        grid-template-rows: 0.5fr 1fr 1.5fr 1fr;
         grid-template-areas:    'name .'        
                                 'box1 box2'
                                 'box3 box3'
@@ -142,7 +142,8 @@ export const MediumBox = styled.div`
     gap: 20px;
     padding: 5%;
     & > h2{
-        margin-top: 0;
+        margin: 0;
+        padding: 0;
         width: 100%;
     }
 
@@ -157,6 +158,7 @@ export const BigBox = styled.div`
     padding: 5%;
     & > h2{
         margin: 0;
+        padding: 0;
     }
 
 `
