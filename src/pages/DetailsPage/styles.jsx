@@ -83,13 +83,12 @@ export const BoxCard = styled.div`
         height: fit-content;
         padding-bottom: 1.5em;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.5fr repeat(3, 1fr);
-        grid-template:  "name ." 0.5fr
-                        "box1 box2" 1fr
-                        "box3 box3" 1.2fr
-                        "box4 box4" 1fr / 1fr 1fr;
+        grid-template-rows: 0.5fr 1fr 3fr 1fr;
+        grid-template:  "name ." 
+                        "box1 box2" 
+                        "box3 box3" 
+                        "box4 box4" ;
         align-items: flex-start;
-        gap: 13px;
         
     }
     #box1{grid-area: box1; align-self: flex-start;}
@@ -120,7 +119,7 @@ export const SmallBox = styled.div`
     & > img{
         height: 100%;
         margin: 0 auto;
-        @media(max-width: 420px) {
+        @media(max-width: 520px) {
             height: 40vw;
        }
 
@@ -134,14 +133,15 @@ export const SmallBox = styled.div`
 export const MediumBox = styled.div`
     margin: 0 auto; 
     background-color: white;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
     gap: 20px;
+    box-sizing: border-box;
     padding: 5%;
     & > h2{
         margin: 0;
@@ -155,9 +155,10 @@ export const BigBox = styled.div`
     margin: 0 auto; 
     background-color: white;
     border-radius: 12px;
-    width: 90%;
-    height:90%;
+    width: 100%;
+    height:100%;
     padding: 5%;
+    box-sizing: border-box;
     & > h2{
         margin: 0;
         margin-bottom: 20px;
@@ -250,25 +251,18 @@ export const Move = styled.div`
     
 `
 
-export const BoxImagem = styled.div`
-    
-    
+export const BoxImagem = styled.div` 
     width: 1fr;
-    
-    
-
-
     height: 190px;
-
 `
 const animation = keyframes`
       0% { width: 0; }
-  100% { width:  ${(props) => props.value}%; }
+  100% { width:  ${(props) => props.value * 0.8}%; }
 `;
 
 export const Stat = styled.div`
     display: grid;
-    grid-template-columns: 0.3fr 0.2fr 1fr;
+    grid-template-columns: 0.4fr 0.2fr 1fr;
     gap: 8px;
     margin: 8px 0;
     width: 100%;
@@ -281,7 +275,7 @@ export const Stat = styled.div`
     }
     & > div {
         border-radius: 100px;
-        width: ${props => props.width}%;
+        width: ${props => props.width * 0.8}%;
         max-width: 100%;
         background-color: #ff5511;
         animation: ${animation} 1s normal forwards;

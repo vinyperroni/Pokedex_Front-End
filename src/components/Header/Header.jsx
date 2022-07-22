@@ -1,7 +1,7 @@
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import { Container } from "./styles"
 import Logo from "../../img/logo.svg"
-import { FaTrashAlt, FaAngleLeft } from "react-icons/fa";
+import { FaTrashAlt, FaAngleLeft, FaPlusSquare } from "react-icons/fa";
 import { MdCatchingPokemon } from "react-icons/md"
 import { useContext } from "react";
 import GlobalContext from "../../context/GlobalContext";
@@ -69,11 +69,12 @@ export default function Header() {
           (pokedex.some(pokemon => (pokemon.name === pathParams.name)) 
           ?
             <button onClick={() => delToPokedex(pathParams.name)}>
-            <FaTrashAlt />
+            <FaTrashAlt className="icon"/>
             <strong className="big-screen">Remover!</strong>
                </button>
           :            
             <button onClick={() => addToPokedex(pathParams.name)}>
+              <FaPlusSquare className="icon"/>
               <strong className="big-screen">Capturar!</strong>              
             </button>)
         }

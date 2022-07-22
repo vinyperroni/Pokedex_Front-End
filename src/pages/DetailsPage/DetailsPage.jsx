@@ -131,6 +131,7 @@ export default function DetailsPage() {
                             })}
 
                         </div>
+                    </div>
 
                     </BoxDetalhes>
                     <img src={image} alt={name} />
