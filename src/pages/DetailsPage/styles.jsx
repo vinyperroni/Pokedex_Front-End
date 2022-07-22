@@ -84,11 +84,12 @@ export const BoxCard = styled.div`
 
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 0.5fr repeat(3, 1fr);
-        grid-template-areas:    'name .'        
-                                'box1 box2'
-                                'box3 box3'
-                                'box4 box4';
+        grid-template:  "name ." 0.5fr
+                        "box1 box2" 1fr
+                        "box3 box3" 1.2fr
+                        "box4 box4" 1fr / 1fr 1fr;
         align-items: flex-start;
+        gap: 13px;
         
     }
     #box1{grid-area: box1; align-self: flex-start;}
@@ -157,7 +158,7 @@ export const BigBox = styled.div`
     height:90%;
     padding: 5%;
     & > h2{
-        margin: 0;
+        margin: 0 0 30px 0;
     }
 
 `
@@ -188,7 +189,11 @@ export const BoxDetalhes = styled.div`
         flex-direction: row;
         gap: 5px;
         max-width: 5em;
-        
+
+        p{
+            padding: 0 5px;
+        }
+
         #fire {background-color: #c74118;}
         #fighting{background-color: #da6d00}    
         #water {background-color: #0099e0;}
@@ -255,13 +260,12 @@ export const BoxImagem = styled.div`
 `
 const animation = keyframes`
       0% { width: 0; }
-  100% { width:  ${(props) => props.value * 0.75}%; }
+  100% { width:  ${(props) => props.value}%; }
 `;
 
 export const Stat = styled.div`
     display: grid;
-    grid-template-columns: 0.7fr 0.1fr 1fr;
-    text-align: right;
+    grid-template-columns: 0.3fr 0.2fr 1fr;
     gap: 8px;
     margin: 8px 0;
     width: 100%;
@@ -274,7 +278,7 @@ export const Stat = styled.div`
     }
     & > div {
         border-radius: 100px;
-        width: ${props => props.width * 0.75}%;
+        width: ${props => props.width}%;
         max-width: 100%;
         background-color: #ff5511;
         animation: ${animation} 1s normal forwards;

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { ImgType } from "../../utils/ImgType";
+import { StatsName } from "../../utils/StatsName";
 import PokemonLoading from "../../img/pokemon.png";
 import PokemonFront from "../../img/pokemon-front.png";
 import PokemonBack from "../../img/pokemon-back.png";
@@ -19,21 +20,28 @@ export default function DetailsPage() {
     const [image, setImage] = useState(PokemonLoading);
     const [frontImg, setFrontImg] = useState(PokemonFront)
     const [backImg, setBackImg] = useState(PokemonBack)
+    const [total, setTotal] = useState(0);
    
     const [loading, setLoading] = useState(true);
 
 
 
     useEffect(() => {
+        if(!loading){
+            let total = 0;
+            stats.forEach(stat => {
+                total += stat.stat;
+            })
+            setTotal(total)
+        }
         getDetails()
-    }, [pathParams.nome])
+    }, [pathParams.nome, loading])
 
 
 
     const getDetails = () => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pathParams.name}`)
             .then((response) => {
-                console.log(response.data);
                 setName(response.data.name)
                 setId(response.data.id)
 
@@ -58,6 +66,12 @@ export default function DetailsPage() {
                 setFrontImg(response.data.sprites.front_default)
                 setBackImg(response.data.sprites.back_default)
             }).catch((error) => {
+                setName("Pokemon não encontrado")
+                
+                setStats(["error"])
+                setMoves(["error"])
+                setType(["error"])
+                setLoading(false)
                 console.log(error);
             })
     }
@@ -78,25 +92,23 @@ export default function DetailsPage() {
                     {moves && moves.slice(0, 8).map((move) => {
                   return (
                     <Move key={move}>
-                      <p>{move}</p>
+                      <p>{move.split("-").join(" ")}</p>
                     </Move>
                   );
                 })}
                 </MediumBox>
                 <BigBox id="box3">
                     <h2>Base stats</h2>
-                    {stats && stats.map((stat) => {
+                    {stats && stats.map((stat, i) => {
                         return (
-                            
-                            <Stat width={stat.stat}>
-                                <span id="statName">{stat.nome}</span>
+                            <Stat key={i} width={stat.stat}>
+                                <span id="statName">{StatsName(stat.nome)}</span>
                                 <span>{stat.stat}</span>
                                 <div></div>
                             </Stat>
-                            
-                        
                         )
                     })}
+                    <Stat width={total}><span id="statName">Total:</span><span>{total}</span></Stat>
                 </BigBox>              
                
                 <BoxDetalhes>
