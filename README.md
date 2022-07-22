@@ -5,12 +5,24 @@ Nome dos integrantes:
 - Jônatas Felix Nery da Cunha
 - Lucas Monteiro Santos
 
-Link do Surge: www.link.com.br
+> Status do Projeto: Concluido :heavy_check_mark:.
 
-O que funciona:
-- Item 1
-- Item 2
+LINK : [Clique Aqui](https://pokedex-gp1.surge.sh/)
 
-O que não funciona: 
-- Item 3
-- Item 4
+### Funcionalidades:
+
+- [x] Ver pokemons e adicionar/remover da pokedex
+- [x] Paginda de detalhes com mais informações sobres os pokémons
+- [x] Pagina da Pokedex com possibilidade de remover tanto todos de uma vez como apenas um 
+- [x] Responsividade
+
+## Descrição do Projeto
+<p>O Pokédex consiste em um site onde o usuário pode criar sua pokédex com os seus pokemons favoritos</p>
+
+### Tecnologias utilizadas:
+
+- React
+- Styled Components
+- Axios
+- react-icons
+- react-router-dom
