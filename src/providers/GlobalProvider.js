@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 export default function GlobalProvider(props) {
+    const [triggerModal, setTriggerModal] = useState("");
     const [pageNumber, setPageNumber] = useState(1);
     const [list, setList] = useState([]);
   
@@ -22,7 +23,7 @@ export default function GlobalProvider(props) {
     },[pageNumber])
   
     return(
-        <GlobalContext.Provider value={{list, setList, pageNumber, setPageNumber}}>
+        <GlobalContext.Provider value={{list, setList, pageNumber, setPageNumber, triggerModal, setTriggerModal}}>
             {props.children}
         </GlobalContext.Provider>
     )
