@@ -255,7 +255,7 @@ export const BoxImagem = styled.div`
 
 export const Stat = styled.div`
     display: grid;
-    grid-template-columns: 0.8fr 0.2fr 1fr;
+    grid-template-columns: 0.7fr 0.1fr 1fr;
     text-align: right;
     gap: 8px;
     margin: 8px 0;
