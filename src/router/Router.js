@@ -9,10 +9,11 @@ export const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route index element={<HomePage />} />
-                <Route path="/:pageNumber" element={<HomePage />} />
+                <Route path="/page=:pageNumber" element={<HomePage />} />
+                <Route path={`/page=:pageNumber`} element={<HomePage />} />
                 <Route path="/pokedex" element={<PokedexPage />} />
                 <Route path="/pokemon/:name" element={<DetailsPage />} />
-                <Route path='*' element={<NotFoundPage/>} />               
+                <Route path='*' element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>
     )

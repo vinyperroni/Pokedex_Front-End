@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Container } from "./styles"
 import Logo from "../../img/logo.svg"
 import { FaTrashAlt, FaAngleLeft, FaPlusSquare } from "react-icons/fa";
@@ -13,33 +13,12 @@ export default function Header() {
 
     const location = useLocation();
     const navigate = useNavigate();
-
-    // const RenderButton = () => {
-    //     if (location.pathname === "/") {
-    //         return (
-    //             <NavLink id="btn" to="/pokedex">
-    //                 Pokédex
-    //             </NavLink>
-    //         )
-    //     } else {
-    //        if(location.pathname === '/pokedex'){
-    //         return (
-    //             <NavLink id="btn" to="/">
-    //               <FaTrashAlt />
-    //               <strong>Limpar</strong>
-    //             </NavLink>
-    //         )
-    //        }
-    //     }
-    // }
   return (
     <>
     {triggerModal !== "" && <ModalNotify/>}
     <Container>
-      
-
       <div>
-        {location.pathname !== "/" &&
+        {!(location.pathname === `/page=${pathParams.pageNumber}` || location.pathname === "/") &&
           <button  onClick={() => navigate(-1)}>
             <FaAngleLeft />
             <strong className="big-screen">Voltar</strong>
@@ -50,7 +29,7 @@ export default function Header() {
       <img src={Logo} alt="Pokemon" />
       
       <div>
-        {location.pathname === "/" &&
+        {(location.pathname === "/" || location.pathname === `/page=${pathParams.pageNumber}`) &&
           <button  onClick={() => navigate("/pokedex")}>
             <MdCatchingPokemon />
             <strong className="big-screen">Pokedex</strong>
