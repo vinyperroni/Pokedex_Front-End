@@ -14,7 +14,7 @@ const Grayout = styled.div`
   opacity: 0;
   background-color: rgba(0,0,0, 0.5);
   backdrop-filter: blur(0.5em);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.25s ease-in-out;
 `
 const Box = styled.div`
   display: flex;
@@ -43,8 +43,8 @@ export const ModalNotify = (props) => {
   useEffect (() => {
     if (triggerModal) {
       setTimeout(() => {document.querySelector(".grayout").style.opacity = "1"}, 100)
-      setTimeout(() => {document.querySelector(".grayout").style.opacity = "0"}, 1500)
-      setTimeout(() => {setTriggerModal("")}, 2000)
+      setTimeout(() => {document.querySelector(".grayout").style.opacity = "0"}, 1000)
+      setTimeout(() => {setTriggerModal("")}, 1500)
     }    
   }, [])
 
