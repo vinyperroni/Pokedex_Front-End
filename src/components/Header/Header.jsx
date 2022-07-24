@@ -26,7 +26,7 @@ export default function Header() {
         }
       </div>
       
-      <img src={Logo} alt="Pokemon" />
+      <img src={Logo} alt="Pokemon"  onClick={() => navigate("/page=1")}/>
       
       <div>
         {(location.pathname === "/" || location.pathname === `/page=${pathParams.pageNumber}`) &&
