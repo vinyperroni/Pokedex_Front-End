@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import GlobalContext from "../../context/GlobalContext";
 import { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa"
 
 const Box = styled.footer`
@@ -55,12 +56,15 @@ const Box = styled.footer`
 `
 
 export const BoxPageNumber = () => {
-  const {pageNumber, setPageNumber} = useContext(GlobalContext)
-  const [auxPageNumber, setAuxPageNumber] = useState(pageNumber)
+  const pageNumber = useParams().pageNumber
+  const { setPageNumber } = useContext(GlobalContext)
+  const [auxPageNumber, setAuxPageNumber] = useState(parseInt(pageNumber) < 58  && parseInt(pageNumber) > 0 ? parseInt(pageNumber) : 1)
 
+ 
   useEffect(() => {
     auxPageNumber !== "" && (auxPageNumber) > 0 && setPageNumber(auxPageNumber);
-  }, [auxPageNumber])
+    window.history.pushState(null, "", `/page=${auxPageNumber}`);
+  }, [auxPageNumber, setPageNumber])
 
   const handleChange = (e) => {
     e.target.value > 58 ? setAuxPageNumber(58) : setAuxPageNumber(e.target.value)

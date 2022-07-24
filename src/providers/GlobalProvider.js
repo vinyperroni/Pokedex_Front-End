@@ -1,5 +1,5 @@
 import GlobalContext from "../context/GlobalContext";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from "axios";
 
 export default function GlobalProvider(props) {
@@ -7,16 +7,17 @@ export default function GlobalProvider(props) {
     const [pageNumber, setPageNumber] = useState(1);
     const [list, setList] = useState([]);
     const [pokedex, setPokedex] = useState([])
-  
-    const requestList = () => {
-      axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${(pageNumber - 1) * 20}&limit=20`)
-      .then((response) => {
-        setList(response.data.results);
-      }).catch((error) => {
-        setList(error.data);
-        console.log(error);
-      }) 
-    }
+
+
+  const requestList = useCallback(() => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${(pageNumber - 1) * 20}&limit=20`)
+    .then((response) => {
+      setList(response.data.results);
+    }).catch((error) => {
+      setList(error.data);
+      console.log(error);
+    }) 
+  }, [pageNumber, setList])
 
     const addToPokedex = (item) => {
       setPokedex([...pokedex, {name: item}])
@@ -41,8 +42,8 @@ export default function GlobalProvider(props) {
       requestList();
       if (localStorage.getItem("pokedex")) {
           setPokedex(JSON.parse(localStorage.getItem("pokedex")))      
-      }      
-    },[pageNumber])
+      } 
+    },[pageNumber, requestList])
   
     return(
         <GlobalContext.Provider value={{list, setList, pageNumber, setPageNumber, triggerModal, setTriggerModal, pokedex, setPokedex, addToPokedex, delToPokedex, clearPokedex}}>
